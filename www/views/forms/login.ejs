@@ -1,0 +1,23 @@
+<form action="/login" method="post" class="form-login">
+    <h2><span>Login</span></h2>
+    <div class="nycg-layout nycg-layout-33-66">
+        <div class="nycg-col nycg-col-1">
+            <label for="email">Email Address <sup>*</sup></label>
+        </div>
+        <div class="nycg-col nycg-col-2">
+            <input type="text" name="email" id="email" autocomplete="off" value="">
+        </div>
+        <!- /row -->
+        <div class="nycg-col nycg-col-1">
+            <label for="password">Password <sup>*</sup></label>
+        </div>
+        <div class="nycg-col nycg-col-2">
+            <input type="password" name="password" id="password" autocomplete="off" value="">
+        </div>
+    </div>
+    <button type="submit" class="nycg-btn" id="nycg-login-submit">Login</button>
+    <a href="/auth/google" class="nycg-btn nycg-btn-social-login nycg-btn-g"><i class="ss-icon ss-social-regular">google+</i></a>
+    <a href="/auth/twitter" class="nycg-btn nycg-btn-social-login nycg-btn-tw"><i class="ss-icon ss-social-regular">twitter</i></a>
+    <a href="/auth/facebook" class="nycg-btn nycg-btn-social-login nycg-btn-fb"><i class="ss-icon ss-social-regular">facebook</i></a>
+    <label for="nycg-login-submit" class="label-submit">or login with:</label>
+</form>

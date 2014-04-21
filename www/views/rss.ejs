@@ -1,0 +1,14 @@
+<% include inc/top.ejs %>
+<div class="nycg-main nycg-middle nycg-emphasis">
+<h1><span><% if (typeof pageHeader !== 'undefined') { %><%= pageHeader %><% } %></span></h1>
+</div>
+<div class="nycg-main nycg-bottom">
+    <ul>
+        <li><a href="/rss/art">Recent Art</a></li>
+        <li><a href="/rss/artist">Recent Artists</a></li>
+        <li><a href="/rss/venue">Recent Venues</a></li>
+        <li><a href="/rss/event">Recent Events</a></li>
+        <li><a href="/rss/call">Recent Call to Artists Listings</a></li>
+    </ul>
+</div>
+<% include inc/bottom.ejs %>

@@ -1,0 +1,9 @@
+.nycg-main.nycg-middle {
+  background: #000;
+}
+.nycg-overlay {
+  display: none;
+}
+a:hover .nycg-overlay {
+  display: block;
+}

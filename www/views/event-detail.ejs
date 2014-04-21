@@ -1,0 +1,62 @@
+<% include inc/top.ejs %>
+<% if (typeof artEvent !== 'undefined' && artEvent != false) { %>
+<div class="nycg-main nycg-middle nycg-emphasis">
+    <h1><%= artEvent.title %></h1>
+</div>
+<div class="nycg-main nycg-middle nycg-featured">
+    <figure>
+        <img src="<%= artEvent.pic_cdn %>" alt="<%= artEvent.title %>" />
+    </figure>
+</div>
+<% } %>
+<div class="nycg-main nycg-bottom">
+<% if (typeof artEvent !== 'undefined' || artEvent != false) { %>
+    <article class="nycg-layout nycg-layout-70-30">
+        <div class="nycg-col nycg-col-1">
+            <%- artEvent.summary %>
+        </div>
+        <aside class="nycg-col nycg-col-2">
+            <h2><span>When</span></h2>
+            <p><time><%= artEvent.dateFrom %></time> - <time><%= artEvent.dateTo %></time></p>
+            <h2><span>Where</span></h2>
+            <p>
+                <% if (artEvent.venueName != '') { %>
+                <strong><%=: artEvent.venueName %></strong><br/>
+                <% } %>
+                <% if (artEvent.location != '') { %>
+                <%=: artEvent.location | cleanTruncate %><br/>
+                <% } %>
+                <a href="/profile/<%= eventUser.username %>">Posted by <%= eventUser.displayName %> <i class="ss-icon">next</i></a>
+            </p>
+            <h2><span>Share This Page</span></h2>
+            <div>
+                <span class='st_facebook_large' displayText='Facebook'></span>
+                <span class='st_googleplus_large' displayText='Google +'></span>
+                <span class='st_twitter_large' displayText='Tweet'></span>
+                <span class='st_linkedin_large' displayText='LinkedIn'></span>
+                <span class='st_pinterest_large' displayText='Pinterest'></span>
+            </div>
+            <!--
+            <h2><span>Sneak Peek</span></h2>
+            <div class="nycg-sneak">
+                <a href="#"><img src="/images/test/sneak-1.jpg" alt="ipsum lorem" /></a>
+                <a href="#"><img src="/images/test/sneak-2.jpg" alt="ipsum lorem" /></a>
+                <a href="#"><img src="/images/test/sneak-3.jpg" alt="ipsum lorem" /></a>
+                <a href="#"><img src="/images/test/sneak-4.jpg" alt="ipsum lorem" /></a>
+                <a href="#"><img src="/images/test/sneak-5.jpg" alt="ipsum lorem" /></a>
+            </div>
+            -->
+            <% if (typeof artEvent.link !== 'undefined' && artEvent.link != "") { %>
+            <h2><span>More info</span></h2>
+            <a href="<%= artEvent.link %>" class="nycg-external"><%= artEvent.link %></a>
+            <% } %>
+        </aside>
+    </article>
+    <article class="nycg-layout nycg-layout-20 nycg-latest-events">
+        <h2><span>Latest Events / <a href="/events">All Events</a></span></h2>
+        <% include inc/latest-events.ejs %>
+    </article>
+<% } %>
+    <% include inc/footer.ejs %>
+</div>
+<% include inc/bottom.ejs %>

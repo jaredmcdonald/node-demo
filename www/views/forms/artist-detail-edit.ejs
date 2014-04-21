@@ -1,0 +1,56 @@
+<%
+if (user) {
+%>
+<script src="/js/libs/ckeditor/ckeditor.js"></script>
+<form action="/artist-detail-edit" method="post" class="form-artist-detail-edit" enctype="multipart/form-data">
+    <div class="nycg-layout nycg-layout-33-66">
+        <div class="nycg-col nycg-col-1">
+            <label for="username">Username <sup>*</sup></label>
+            <small>Used in your profile URL</small>
+        </div>
+        <div class="nycg-col nycg-col-2">
+            <input type="text" name="username" id="username" autocomplete="off" value="<%- user.username %>">
+        </div>
+        <!- /row -->
+        <div class="nycg-col nycg-col-1">
+            <label for="nycg-input-name">Display Name <sup>*</sup></label>
+            <small>Typically first name last name</small>
+        </div>
+        <div class="nycg-col nycg-col-2">
+            <input type="text" name="displayName" id="nycg-input-name" autocomplete="off" value="<%- user.displayName %>">
+        </div>
+        <!- /row -->
+        <div class="nycg-col nycg-col-1">
+            <label for="nycg-input-link">Website Link</label>
+        </div>
+        <div class="nycg-col nycg-col-2">
+            <input type="text" name="website_link" id="nycg-input-link" autocomplete="off" value="<%- user.link %>">
+        </div>
+        <!- /row -->
+        <div class="nycg-col nycg-col-1">
+            <label for="nycg-input-body">Bio</label>
+            <small>30 character min, 3000 character max.</small>
+        </div>
+        <div class="nycg-col nycg-col-2">
+            <textarea name="bio" id="nycg-input-body" class="ckeditor"><%- user.bio %></textarea>
+        </div>
+        <!- /row -->
+        <div class="nycg-col nycg-col-1">
+            <label for="nycg-input-upload">Profile Image</label>
+        </div>
+        <div class="nycg-col nycg-col-2">
+            <figure><img src="<%= user.pic_thumb %>" /></figure>
+            <label for="nycg-input-upload" class="nycg-upload-label">Upload new:</label>
+            <input type="file" name="upload_img" class="nycg-btn-file" id="nycg-input-upload" >
+        </div>
+        <!- /row -->
+    </div>
+    <button type="submit" class="nycg-btn" id="nycg-edit-submit">Save</button>
+</form>
+<%
+    } else {
+%>
+<h3>Something went wrong :/ </h3>
+<%
+    }
+%>

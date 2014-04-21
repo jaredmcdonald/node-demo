@@ -1,0 +1,45 @@
+<% include inc/top.ejs %>
+<div class="nycg-main nycg-middle nycg-emphasis">
+<h1><span><% if (typeof pageHeader !== 'undefined') { %><%= pageHeader %><% } %></span></h1>
+</div>
+<div class="nycg-main nycg-bottom">
+<%
+    if (artist) {
+%>
+    <article class="nycg-layout nycg-layout-50">
+        <div class="nycg-col nycg-col-1">
+            <% if (artist.bio != "") { %>
+            <%- artist.bio %>
+            <% } else { %>
+            <h3>No bio yet :( </h3>
+            <% } %>
+        </div>
+        <aside class="nycg-col nycg-col-2">
+            <figure><img src="<%= artist.pic_cdn %>" alt="<%= artist.displayName %>" /></figure>
+            <% if (artist.link != "") { %>
+            <h2><span>Website / Portfolio</span></h2>
+            <a href="<%= artist.link %>" class="nycg-external" target="_blank"><%= artist.link %></a>
+            <% } %>
+            <h2><span>Share This Page</span></h2>
+            <div>
+                <span class='st_facebook_large' displayText='Facebook'></span>
+                <span class='st_googleplus_large' displayText='Google +'></span>
+                <span class='st_twitter_large' displayText='Tweet'></span>
+                <span class='st_linkedin_large' displayText='LinkedIn'></span>
+                <span class='st_pinterest_large' displayText='Pinterest'></span>
+            </div>
+        </aside>
+    </article>
+    <article class="nycg-layout nycg-layout-25 nycg-gallery">
+        <% include inc/list-art.ejs %>
+    </article>
+<%
+    } else {
+%>
+    <h1>No artist found.</h1>
+<%
+    }
+%>
+    <% include inc/footer.ejs %>
+</div>
+<% include inc/bottom.ejs %>

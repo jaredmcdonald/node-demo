@@ -1,0 +1,33 @@
+<% if (typeof artEvents !== 'undefined' && artEvents != false) { %>
+    <% for(var i=0; i < artEvents.length; i++) {%>
+<section class="nycg-col nycg-col-<%= i + 1 %>" data-id="<%= artEvents[i]._id %>" data-date="<%= artEvents[i].date %>">
+    <a href="/event-detail/<%= artEvents[i]._id %>">
+        <figure>
+            <div>
+                <img src="<%= artEvents[i].pic_thumb %>" alt="<%= artEvents[i].title %>" />
+                <div class="nycg-overlay">View<br/>Event</div>
+            </div>
+            <figcaption>
+                <h4><%= artEvents[i].title %></h4>
+                <p><strong><%= artEvents[i].dateFrom %></time> - <time><%= artEvents[i].dateTo %></time> | <%= artEvents[i].venueName %></strong> <%=: artEvents[i].summary | cleanTruncate %></p>
+                <div class="nycg-btn nycg-btn-sm">View Event</div>
+            </figcaption>
+        </figure>
+    </a>
+</section>
+    <% } %>
+    <% if (typeof infiniteScroll !== 'undefined') { %>
+<div class="nycg-preloader">
+    <div id="floatingBarsG" class="nycg-preloader">
+        <div class="blockG" id="rotateG_01"></div>
+        <div class="blockG" id="rotateG_02"></div>
+        <div class="blockG" id="rotateG_03"></div>
+        <div class="blockG" id="rotateG_04"></div>
+        <div class="blockG" id="rotateG_05"></div>
+        <div class="blockG" id="rotateG_06"></div>
+        <div class="blockG" id="rotateG_07"></div>
+        <div class="blockG" id="rotateG_08"></div>
+    </div>
+</div>
+    <% } %>
+<% } %>

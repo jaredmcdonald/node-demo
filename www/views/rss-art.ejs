@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0"  xmlns:media="http://search.yahoo.com/mrss/">
+	<channel>
+		<title>NYCG Recent Art</title>
+		<description>Recent Artwork uploaded to NYCG.</description>
+		<link>http://www.nyc.gallery</link>
+		<image>
+			<title>NYCG Recent Art</title>
+			<url>http://nyc.gallery/images/logo-fb.png</url>
+			<link>http://www.nyc.gallery</link>
+		</image>
+<% for(var i=0; i < items.length; i++) {%>
+		<item>
+			<media:thumbnail url="<%= items[i].pic_thumb %>"/>
+			<title>
+			<![CDATA[
+				<%- items[i].title %>
+			]]>
+			</title>
+			<link>
+			<![CDATA[
+				http://www.nyc.gallery/profile/<%= items[i].uid %>
+			]]>
+			</link>
+			<pubDate><%=: items[i].date | toDate %></pubDate>
+			<description>
+			<![CDATA[
+				Artwork entitled "<%- items[i].title %>".
+			]]>
+			</description>
+			<category>Arts/Visual_Arts</category>
+		</item>
+<% } %>
+	</channel>
+</rss>

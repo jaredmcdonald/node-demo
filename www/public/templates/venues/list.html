@@ -1,0 +1,17 @@
+<% _.each(obj.items, function (venue) { %>
+<section class="nycg-col" data-uid="<%= venue.uid %>" data-date="<%= venue.date %>">
+    <a href="/profile/<%= venue.username %>">
+        <figure>
+            <div>
+                <img src="<%= venue.pic_thumb %>" alt="<%= venue.displayName %>" />
+            </div>
+            <figcaption>
+                <h4><%= venue.displayName %></h4>
+                <p><%= obj.viewHelpers.removeHTML(venue.bio) %></p>
+                <div class="nycg-btn nycg-btn-sm">Read More</div>
+            </figcaption>
+        </figure>
+    </a>
+</section>
+<%  }); %>
+</script>

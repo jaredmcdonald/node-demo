@@ -1,0 +1,64 @@
+<%
+if (user) {
+%>
+<script src="/js/libs/ckeditor/ckeditor.js"></script>
+<form action="/venue-detail-event-add" method="post" class="form-venue-detail-event-add" enctype="multipart/form-data">
+    <div class="nycg-layout nycg-layout-33-66">
+        <div class="nycg-col nycg-col-1">
+            <label for="nycg-input-title">Event Name <sup>*</sup></label>
+        </div>
+        <div class="nycg-col nycg-col-2">
+            <input type="text" name="title" id="nycg-input-title" autocomplete="off" value="">
+        </div>
+        <!- /row -->
+        <div class="nycg-col nycg-col-1">
+            <label>Event Dates <sup>*</sup></label>
+        </div>
+        <div class="nycg-col nycg-col-2 nycg-col-dates">
+            <a href="#" class="nycg-date"><i class="ss-icon">date</i>Start</a><a href="#" class="nycg-date"><i class="ss-icon">date</i>End</a>
+            <input type="hidden" name="date_from" value="2014-04-05">
+            <input type="hidden" name="date_to" value="2014-04-09">
+        </div>
+        <!- /row -->
+        <div class="nycg-col nycg-col-1">
+            <label for="nycg-input-venue">Venue Name<sup>*</sup></label>
+            <small>host of event</small>
+        </div>
+        <div class="nycg-col nycg-col-2">
+            <input type="text" name="venue_name" id="nycg-input-venue" autocomplete="off" value="<%= user.displayName %>">
+        </div>
+        <!- /row -->
+        <div class="nycg-col nycg-col-1">
+            <label for="nycg-input-link">More Info Link (optional)</label>
+        </div>
+        <div class="nycg-col nycg-col-2">
+            <input type="text" name="link" id="nycg-input-link" autocomplete="off" value="">
+        </div>
+        <!- /row -->
+        <div class="nycg-col nycg-col-1">
+            <label for="nycg-input-body">Event Address</label>
+        </div>
+        <div class="nycg-col nycg-col-2">
+            <input type="text" name="location" id="nycg-input-location" autocomplete="off" value="<%= user.address %>">
+        </div>
+        <!- /row -->
+        <div class="nycg-col nycg-col-1">
+            <label for="nycg-input-body">Event Summary <sup>*</sup></label>
+            <small>limit: 3000 characters</small>
+        </div>
+        <div class="nycg-col nycg-col-2">
+            <textarea name="summary" id="nycg-input-body" class="ckeditor"></textarea>
+        </div>
+        <!- /row -->
+        <div class="nycg-col nycg-col-1">
+            <label for="nycg-input-upload">Featured Image <sup>*</sup></label>
+            <small>min: 1060px width (1060 x 480 ideal)</small>
+        </div>
+        <div class="nycg-col nycg-col-2">
+            <input type="file" name="upload_img" class="nycg-btn-file" id="nycg-input-upload" >
+        </div>
+        <!- /row -->
+    </div>
+    <button type="submit" class="nycg-btn" id="nycg-edit-submit">Add Event</button>
+</form>
+<% } %>

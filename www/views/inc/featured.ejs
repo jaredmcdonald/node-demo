@@ -1,0 +1,13 @@
+<% if (typeof randomArtEvent !== 'undefined' && randomArtEvent != false) { %>
+<div class="nycg-main nycg-middle nycg-featured">
+    <figure>
+        <img src="<%= randomArtEvent.pic_cdn %>" alt="<%= randomArtEvent.title %>" />
+        <figcaption>
+            <h3><time><%= randomArtEvent.dateFrom %> - <%= randomArtEvent.dateTo %></time> | <%= randomArtEvent.venueName %></h3>
+            <h1><%= randomArtEvent.title %></h1>
+            <p><%=: randomArtEvent.summary | cleanTruncate %></p>
+            <a href="/event-detail/<%= randomArtEvent._id %>" class="nycg-btn nycg-btn-sm">View Event</a>
+        </figcaption>
+    </figure>
+</div>
+<% } %>

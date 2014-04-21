@@ -1,0 +1,39 @@
+<% if (typeof art !== 'undefined' && art != false) { %>
+<form action="/artist-detail-image-edit/<%= art._id %>" method="post" class="form-artist-detail-image-edit" enctype="multipart/form-data">
+    <div class="nycg-layout nycg-layout-33-66">
+        <div class="nycg-col nycg-col-1">
+            <label>Image Edit</label>
+        </div>
+        <div class="nycg-col nycg-col-2">
+            <figure>
+                <img src="<%= art.pic_cdn %>" />
+            </figure>
+        </div>
+        <!- /row -->
+        <div class="nycg-col nycg-col-1">
+            <label for="nycg-input-title">Title <sup>*</sup></label>
+        </div>
+        <div class="nycg-col nycg-col-2">
+            <input type="text" name="title" id="nycg-input-title" autocomplete="off" value="<%= art.title %>">
+        </div>
+        <!- /row -->
+        <div class="nycg-col nycg-col-1">
+            <label for="nycg-input-title">Medium</label>
+        </div>
+        <div class="nycg-col nycg-col-2">
+            <input type="text" name="medium" id="nycg-input-medium" autocomplete="off" value="<%= art.medium %>">
+        </div>
+        <!- /row -->
+        <div class="nycg-col nycg-col-1">
+            <label for="nycg-input-upload">New Image</label>
+        </div>
+        <div class="nycg-col nycg-col-2">
+            <input type="file" name="upload_img" class="nycg-btn-file" id="nycg-input-upload" >
+        </div>
+        <!- /row -->
+    </div>
+    <button type="submit" class="nycg-btn" id="nycg-img-submit">Save</button>
+</form>
+<% } else { %>
+<h3>Image not found :/</h3>
+<% } %>

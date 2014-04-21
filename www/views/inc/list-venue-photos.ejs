@@ -1,0 +1,18 @@
+<% if (typeof photos !== 'undefined' && photos != false) { %>
+<h2><span>Venue Images</span></h2>
+    <% for(var i=0; i < photos.length; i++) {%>
+<section class="nycg-col nycg-col-<%= i + 1 %>">
+    <a href="<%= photos[i].pic_cdn %>">
+        <figure>
+            <div>
+                <img src="<%= photos[i].pic_thumb %>" alt="<%= photos[i].desc %>" />
+            </div>
+            <figcaption>
+                <header class="entry-meta"><h2><%= photos[i].desc %></h2></header>
+            </figcaption>
+        </figure>
+    </a>
+</section>
+    <% } %>
+<a href="#" class="nycg-btn nycg-btn-lg">More<br/><i class="ss-icon">navigatedown</i></a>
+<% } %>

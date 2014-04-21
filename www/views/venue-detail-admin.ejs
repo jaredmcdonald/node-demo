@@ -1,0 +1,74 @@
+<% include inc/top.ejs %>
+<div class="nycg-main nycg-middle nycg-emphasis">
+    <h1><span><% if (typeof pageHeader !== 'undefined') { %><%= pageHeader %><% } %></span></h1>
+</div>
+<%
+    if (user) {
+%>
+<h3 class="nycg-dark nycg-edit-action">
+    <a href="/venue-detail-edit">
+        <span>Edit Profile <i class="ss-icon">edit</i></span>
+    </a>
+</h3>
+<div class="nycg-main nycg-bottom">
+    <article class="nycg-layout nycg-layout-50">
+        <div class="nycg-col nycg-col-1">
+            <% if (user.bio != "") { %>
+            <%- user.bio %>
+            <% } else { %>
+            <h3>No bio yet :( </h3>
+            <% } %>
+        </div>
+        <aside class="nycg-col nycg-col-2">
+            <figure><img src="<%= user.pic_cdn %>" alt="<%= user.displayName %>" /></figure>
+            <% if (user.link != "") { %>
+            <h2><span>Website</span></h2>
+            <a href="<%= user.link %>" class="nycg-external" target="_blank"><%= user.link %></a>
+            <% } %>
+            <% if (user.address != "") { %>
+            <h2><span>Address</span></h2>
+            <p><strong><%= user.displayName %></strong><br/>
+                <%= user.address %><br/>
+            </p>
+            <% } %>
+            <% if (user.hours != "") { %>
+            <h2><span>Hours</span></h2>
+            <p><%= user.hours %></p>
+            <% } %>
+            <div>
+                <span class='st_facebook_large' displayText='Facebook'></span>
+                <span class='st_googleplus_large' displayText='Google +'></span>
+                <span class='st_twitter_large' displayText='Tweet'></span>
+                <span class='st_linkedin_large' displayText='LinkedIn'></span>
+                <span class='st_pinterest_large' displayText='Pinterest'></span>
+            </div>
+        </aside>
+    </article>
+    <article class="nycg-layout nycg-layout-25 nycg-gallery">
+        <h2><span>Venue Images</span></h2>
+        <h3 class="nycg-dark">
+            <a href="/venue-detail-image-add">
+                <span>Add New &nbsp<i class="ss-icon">plus</i></span>
+            </a>
+        </h3>
+        <% include inc/list-venue-photos-edit.ejs %>
+    </article>
+    <article class="nycg-layout nycg-layout-25 nycg-latest-events">
+        <h2><span>Current Events</span></h2>
+        <h3 class="nycg-dark">
+            <a href="/venue-detail-event-add">
+                <span>Add New &nbsp<i class="ss-icon">+</i></span>
+            </a>
+        </h3>
+        <% include inc/venue-latest-events-edit.ejs %>
+    </article>
+<%
+    } else {
+%>
+    <h3>No artist found :/ </h3>
+<%
+    }
+%>
+    <% include inc/footer.ejs %>
+</div>
+<% include inc/bottom.ejs %>

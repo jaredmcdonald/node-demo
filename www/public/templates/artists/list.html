@@ -1,0 +1,16 @@
+<% _.each(obj.items, function (artist) { %>
+<section class="nycg-col" data-uid="<%= artist._id %>" data-date="<%= artist.date %>">
+    <a href="/profile/<%= artist.username %>">
+        <figure>
+            <div>
+                <img src="<%= artist.pic_thumb %>" alt="<%= artist.displayName %>" />
+            </div>
+            <figcaption>
+                <h4><%= artist.displayName %></h4>
+                <p><%= obj.viewHelpers.removeHTML(artist.bio) %></p>
+                <div class="nycg-btn nycg-btn-sm">Read More</div>
+            </figcaption>
+        </figure>
+    </a>
+</section>
+<%  }); %>

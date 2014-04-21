@@ -1,0 +1,31 @@
+<% if (typeof artists !== 'undefined' && artists != false) { %>
+    <% for(var i=0; i < artists.length; i++) {%>
+<section class="nycg-col nycg-col-<%= i + 1 %>" data-uid="<%= artists[i]._id %>" data-date="<%= artists[i].date %>">
+    <a href="/profile/<%= artists[i].username %>">
+        <figure>
+            <div>
+                <img src="<%= artists[i].pic_thumb %>" alt="<%= artists[i].displayName %>" />
+            </div>
+            <figcaption>
+                <h4><%= artists[i].displayName %></h4>
+                <p><%=: artists[i].bio | cleanTruncate %></p>
+                <div class="nycg-btn nycg-btn-sm">Read More</div>
+            </figcaption>
+        </figure>
+    </a>
+</section>
+    <% } %>
+<div class="nycg-preloader">
+    <div id="floatingBarsG" class="nycg-preloader">
+        <div class="blockG" id="rotateG_01"></div>
+        <div class="blockG" id="rotateG_02"></div>
+        <div class="blockG" id="rotateG_03"></div>
+        <div class="blockG" id="rotateG_04"></div>
+        <div class="blockG" id="rotateG_05"></div>
+        <div class="blockG" id="rotateG_06"></div>
+        <div class="blockG" id="rotateG_07"></div>
+        <div class="blockG" id="rotateG_08"></div>
+    </div>
+</div>
+<!-- <a href="#" class="nycg-btn nycg-btn-lg">More<br/><i class="ss-icon">navigatedown</i></a> -->
+<% } %>

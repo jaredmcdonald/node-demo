@@ -1,0 +1,17 @@
+<% _.each(obj.items, function (artEvent) { %>
+<section class="nycg-col" data-id="<%= artEvent._id %>" data-date="<%= artEvent.date %>">
+    <a href="/event-detail/<%= artEvent._id %>">
+        <figure>
+            <div>
+                <img src="<%= artEvent.pic_thumb %>" alt="<%= artEvent.title %>" />
+                <div class="nycg-overlay">View<br/>Event</div>
+            </div>
+            <figcaption>
+                <h4><%= artEvent.title %></h4>
+                <p><strong><%= artEvent.dateFrom %></time> - <time><%= artEvent.dateTo %></time> | <%= artEvent.venueName %></strong> <%= obj.viewHelpers.removeHTML(artEvent.summary) %></p>
+                <div class="nycg-btn nycg-btn-sm">View Event</div>
+            </figcaption>
+        </figure>
+    </a>
+</section>
+<%  }); %>

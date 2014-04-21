@@ -1,0 +1,27 @@
+{
+    "name": "adam-node-demo-rest",
+    "main": "server.js",
+    "version": "0.1.0",
+    "author": "Adam Henson <adam@hensonism.com>",
+    "description": "A RESTful demo.",
+    "contributors": [
+        {
+            "name": "Adam Henson",
+            "email": "adam@hensonism.com"
+        }
+    ],
+    "repository": {
+        //"type": "git",
+        //"url": "https://github.com/adamhenson/nycg.git"
+    },
+    "scripts": {
+        "start": "server.js"
+    },
+    "dependencies": {
+        "restify": "1.4.x",
+        "mongoose": "~3.8.1",
+    },
+    "engines": {
+        "node": "0.10.x"
+    }
+}

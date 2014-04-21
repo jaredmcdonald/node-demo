@@ -1,0 +1,16 @@
+<% if (typeof msgErr !== 'undefined') { %>
+    <% if (msgErr.length > 0) { %>
+    <div class="msg msg-err"><%= msgErr %><a href="#"><i class="ss-icon">close</i></a></div>
+    <% } %>
+<% } %>
+<% if (typeof msgSuccess !== 'undefined') { %>
+    <% if (msgSuccess.length > 0) { %>
+    <div class="msg msg-success"><%= msgSuccess %></div>
+    <% } %>
+<% } %>
+<% if (typeof shareThis !== 'undefined') { %>
+<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+<script type="text/javascript">stLight.options({publisher: "14a9ff2b-12ff-4c89-b6f9-7c3a356157d2", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
+<% } %>
+</body>
+</html>

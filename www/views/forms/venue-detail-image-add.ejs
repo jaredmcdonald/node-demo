@@ -1,0 +1,19 @@
+<form action="/venue-detail-image-add" method="post" class="form-venue-detail-image-add" enctype="multipart/form-data">
+    <div class="nycg-layout nycg-layout-33-66">
+        <div class="nycg-col nycg-col-1">
+            <label for="nycg-input-upload">Select File</label>
+        </div>
+        <div class="nycg-col nycg-col-2">
+            <input type="file" name="upload_img" class="nycg-btn-file" id="nycg-input-upload" >
+        </div>
+        <!- /row -->
+        <div class="nycg-col nycg-col-1">
+            <label for="nycg-input-desc">Description <sup>*</sup></label>
+        </div>
+        <div class="nycg-col nycg-col-2">
+            <input type="text" name="desc" id="nycg-input-desc" autocomplete="off" value="">
+        </div>
+        <!- /row -->
+    </div>
+    <button type="submit" class="nycg-btn" id="nycg-img-submit">Upload</button>
+</form>

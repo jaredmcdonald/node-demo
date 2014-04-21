@@ -1,0 +1,35 @@
+<form action="/admin" method="post" enctype="multipart/form-data">
+    <div class="nycg-layout nycg-layout-33-66">
+        <div class="nycg-col nycg-col-1">
+            <label>Account Type <sup>*</sup></label>
+        </div>
+        <div class="nycg-col nycg-col-2">
+            <input type="radio" name="register_account_type" id="register-artist" value="artist"><label for="register-artist"><strong>Artist</strong></label>
+            <input type="radio" name="register_account_type" id="register-venue" value="venue"><label for="register-venue"><strong>Venue</strong></label>
+        </div>
+        <!- /row -->
+        <div class="nycg-col nycg-col-1">
+            <label for="username">Username <sup>*</sup></label>
+        </div>
+        <div class="nycg-col nycg-col-2">
+            <input type="text" name="username" id="username" autocomplete="off" value="">
+        </div>
+        <!- /row -->
+        <div class="nycg-col nycg-col-1">
+            <label for="display-name">Display Name <sup>*</sup></label>
+            <small>First name last name or venue name.</small>
+        </div>
+        <div class="nycg-col nycg-col-2">
+            <input type="text" name="displayName" id="display-name" autocomplete="off" value="">
+        </div>
+        <!- /row -->
+        <div class="nycg-col nycg-col-1">
+            <label for="nycg-input-upload">Profile Image <sup>*</sup></label>
+        </div>
+        <div class="nycg-col nycg-col-2">
+            <input type="file" name="upload_img" class="nycg-btn-file" id="nycg-input-upload" >
+        </div>
+        <!- /row -->
+    </div>
+    <button type="submit" class="nycg-btn">Finish</button>
+</form>
