@@ -11,8 +11,8 @@
         }
     ],
     "repository": {
-        //"type": "git",
-        //"url": "https://github.com/adamhenson/nycg.git"
+        "type": "git",
+        "url": "https://github.com/adamhenson/node-demo.git"
     },
     "scripts": {
         "start": "server.js"

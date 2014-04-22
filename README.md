@@ -5,5 +5,9 @@ An example Node Express website and Restify app.
 
 ##Covering the following goodies##
 
-1. Coming
-2. Soon
+*   Coming
+*   Soon
+
+####Helpful links####
+*   [Node.js Style Guide](https://github.com/felixge/node-style-guide "Node.js Style Guide") authored by Felix Geisendörfer
+

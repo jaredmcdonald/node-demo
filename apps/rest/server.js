@@ -4,12 +4,12 @@
  *
  *******************************************************************************/
 
-var env = process.env.NODE_ENV || 'dev' // for production run: NODE_ENV=production node server.js
-    , port  = process.env.PORT || 3000
-    , restify = require('restify')
-    , mongoose = require('mongoose')
-    , configDB = require('./config/database.js')
-    , server = restify.createServer({ name: 'mongo-api' });
+var env         = process.env.NODE_ENV || 'dev';
+var port        = process.env.PORT || 3000;
+var restify     = require('restify');
+var mongoose    = require('mongoose');
+var configDB    = require('./config/database.js');
+var server      = restify.createServer({ name: 'mongo-api' });
 
 /*******************************************************************************
  *

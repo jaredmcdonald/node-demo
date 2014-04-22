@@ -3,7 +3,7 @@
   "main": "server.js",
   "version": "0.1.0",
   "author": "Adam Henson <adam@hensonism.com>",
-  "description": "A Node demo using Express, among other goodies.",
+  "description": "A Node demo using Express.",
   "devDependencies": {
     "grunt": "~0.4.4",
     "grunt-contrib-requirejs": "^0.4.3"
@@ -15,8 +15,8 @@
     }
   ],
   "repository": {
-    //"type": "git",
-    //"url": "https://github.com/adamhenson/nycg.git"
+    "type": "git",
+    "url": "https://github.com/adamhenson/node-demo.git"
   },
   "scripts": {
     "start": "server.js"
@@ -24,7 +24,7 @@
   "dependencies": {
     "express": "~3.4.4",
     "ejs": "~0.8.5",
-    "mongoose": "~3.8.1",
+    "mongoose": "~3.8.1"
   },
   "engines": {
     "node": "0.10.x"
