@@ -1,5 +1,5 @@
 var fs = require("fs");
-var Photo = require('../../app/models/photos'); // photos model
+var Photo = require('../../app/models/photos');
 
 module.exports = {
 
