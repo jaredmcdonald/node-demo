@@ -4,9 +4,9 @@ var mongoose = require('mongoose');
 // define the schema for our photo model
 var photoSchema = mongoose.Schema({
 
-    title            : String,
-    path             : String,
-    date             : { type: Date, default: Date.now },
+    title       : String,
+    path        : String,
+    date        : { type: Date, default: Date.now }
 
 });
 

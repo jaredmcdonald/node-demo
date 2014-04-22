@@ -1,6 +1,6 @@
 module.exports = function(server){
 
-    server.get('/photos/:date/:limit', function (req, res, next) {
+    server.get('/api/photos/:date/:limit', function (req, res, next) {
 
         var photo = require(__dirname + '/controllers/photos.js');
 

@@ -1,0 +1,8 @@
+<% _.each(obj, function (photo) { %>
+<section data-date="<%= photo.date %>">
+    <figure>
+        <img src="<%= photo.path %>" alt="<%= photo.title %>" />
+        <figcaption><%= photo.title %></figcaption>
+    </figure>
+</section>
+<%  }); %>

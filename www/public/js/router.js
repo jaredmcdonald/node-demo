@@ -1,9 +1,8 @@
 define([
     'jquery',
-    'views/global',
     'models/infinite-scroll',
     'views/infinite-scroll/list'
-], function($, GlobalView, InfiniteScrollModel, InfiniteScrollView){
+], function($, InfiniteScrollModel, InfiniteScrollView){
 
     var detectBottom = function(threshold, callback) {
         window.onscroll = function() {
@@ -15,18 +14,19 @@ define([
 
     var initialize = function(){
 
-        // globals
-        var globalView = new GlobalView();
-        globalView.render();
+        var initInfiniteScroll = function(){
+            var infiniteScrollModel = new InfiniteScrollModel;
+            var infiniteScrollView = new InfiniteScrollView({ el: $(".infinite-scroll"), model : infiniteScrollModel });
+            infiniteScrollView.render();
+        };
 
-        // infinite scroll
-        var infiniteScroll = (NYCG.infiniteScroll.status) ? new detectBottom(200, function(){ 
-            if(NYCG.infiniteScroll.status && !NYCG.infiniteScroll.isLoading) { 
-              var infiniteScrollModel = new InfiniteScrollModel,
-                infiniteScrollView = new InfiniteScrollView({ el: $(NYCG.infiniteScroll.selector), model : infiniteScrollModel });
-              infiniteScrollView.render();
+        var infiniteScroll = new detectBottom(200, function(){
+            if(!APP.isLoading && APP.infiniteScroll) {
+              var newInfiniteScrolled = new initInfiniteScroll();
             }
-        }) : false;
+        });
+
+        var newInfiniteScroll = new initInfiniteScroll();
 
     };
 

@@ -11,7 +11,10 @@ var express     = require('express');
 var ejs         = require('ejs');
 var mongoose    = require('mongoose');
 var configDB    = require('./config/database.js');
+var flash       = require('connect-flash');
 var app         = express();
+global.env      = env; // use our environment value throughout the app
+global.rest     = "http://local.adam.com:3000/api";
 
 /*******************************************************************************
  *

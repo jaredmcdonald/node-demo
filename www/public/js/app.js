@@ -4,6 +4,9 @@ define([
 ], function($, Router){
 
   var initialize = function(){
+    APP.isLoading = false;
+    APP.infiniteScroll = true;
+    APP.restUrl = "http://local.adam.com:3000/api";
     Router.initialize();
   };
 
