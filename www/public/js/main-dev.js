@@ -9,7 +9,7 @@ require.config({
 });
 
 require([
-    'app'
+	'app'
 ], function(App){
-    App.initialize();
+	App.initialize();
 });

@@ -11,10 +11,9 @@ var express     = require('express');
 var ejs         = require('ejs');
 var mongoose    = require('mongoose');
 var configDB    = require('./config/database.js');
-var flash       = require('connect-flash');
 var app         = express();
-global.env      = env; // use our environment value throughout the app
-global.rest     = "http://local.adam.com:3000/api";
+global.env      = env;
+global.rest     = "http://localhost:3000/api";
 
 /*******************************************************************************
  *
@@ -22,20 +21,15 @@ global.rest     = "http://local.adam.com:3000/api";
  *
  *******************************************************************************/
 
-mongoose.connect(configDB.url); // connect to our database
-
-ejs.filters.toDate = function(d) { // define ejs helper functions
-    var newDate = new Date(d);
-    return newDate;
-};
+mongoose.connect(configDB.url);				// connect to our database
 
 app.configure(function() {
 	// set up our express application
-	app.use(express.logger('dev')); // log every request to the console
-	app.use(express.cookieParser()); // read cookies (needed for auth)
-	app.use(express.bodyParser()); // get information from html forms
-	app.set('view engine', 'ejs'); // set up ejs for templating
-    app.use(express.static(__dirname + "/public"));
+	app.use(express.logger('dev'));			// log every request to the console
+	app.use(express.cookieParser());		// read cookies (needed for auth)
+	app.use(express.bodyParser());			// get information from html forms
+	app.set('view engine', 'ejs');			// set up ejs for templating	
+	app.use(express.static(__dirname + "/public")); // make the public folder accessible
 });
 
 /*******************************************************************************
@@ -44,7 +38,7 @@ app.configure(function() {
  *
  *******************************************************************************/
 
-require('./app/routes.js')(app); // load our routes
+require('./app/routes.js')(app);			// load our routes
 
 /*******************************************************************************
  *
@@ -53,5 +47,5 @@ require('./app/routes.js')(app); // load our routes
  *******************************************************************************/
 
 app.listen(port, function () {
-    console.log('%s listening at port %s', app.name, port)
+	console.log('%s listening at port %s', app.name, port)
 });

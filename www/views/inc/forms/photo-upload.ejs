@@ -1,15 +1,18 @@
-    <form action="/upload" method="post" enctype="multipart/form-data">
-        <label for="upload">select file:</label>
-        <input type="file" name="upload" id="upload" >
-        <label for="title">title:</label>
-        <input type="text" name="title" id="title" autocomplete="off" value="">
-        <button type="submit">upload</button>
-    </form>
+<form action="/upload" method="post" enctype="multipart/form-data">
+	<div class="input-group input-group-lg" style="margin-bottom:20px;">
+	  <span class="input-group-addon">Title</span>
+	  <input type="text" class="form-control" name="title" id="title">
+	</div>
+	<div class="input-group input-group-lg">
+		<input type="file" name="upload" id="upload" class="btn btn-default btn-file" ><br/>
+		<button type="submit" class="btn btn-lg btn-default">Upload</button>
+	</div>
+</form>
 <% if (typeof photo !== 'undefined') { %>
-    <% if (photo) { %>
-    <figure>
-        <img src="<%= photo.path %>" />
-        <figcaption><%= photo.title %></figcaption>
-    </figure>
-    <% } %>
+	<% if (photo) { %>
+<figure style="margin-top:2em;">
+	<img src="<%= photo.path %>" class="img-responsive"/>
+	<figcaption><%= photo.title %></figcaption>
+</figure>
+	<% } %>
 <% } %>

@@ -1,16 +1,38 @@
 <!DOCTYPE html>
-<html>
+<% if (section == 'photos') { %>
+<html lang="en" manifest="app.appcache">
+<% } else { %>
+<html lang="en">
+<% } %>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta name="viewport" content="width=device-width, user-scalable=no">
-    <title><%= pageTitle %></title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title><%= pageTitle %></title>
+	<link href="/css/main.css" rel="stylesheet">
+	<link href="/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/css/bootstrap-theme.min.css" rel="stylesheet">
 </head>
 <body id="<%= section %>">
-<% if (msgErr.length > 0) { %>
-    <div class="msg msg-err"><%= msgErr %></div>
+<% if (typeof msgErr !== 'undefined') { %>
+	<div class="alert alert-danger"><%= msgErr %></div>
 <% } %>
-<% if (msgSuccess.length > 0) { %>
-    <div class="msg msg-success"><%= msgSuccess %></div>
+<% if (typeof msgSuccess !== 'undefined') { %>
+	<div class="alert alert-success"><%= msgSuccess %></div>
 <% } %>
-    <header><h1><%= pageTitle %></h1></header>
-    <nav><a href="/">photos</a> | <a href="/upload">upload</a></nav>
+	<!-- Fixed navbar -->
+  <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <a href="/" class="navbar-brand">photos</a>
+        <a href="/upload" class="navbar-brand">upload</a>
+      </div>
+    </div>
+  </div>
+  <div class="container theme-showcase container-fluid" role="main">
+  	<div class="jumbotron">
+      <h1><%= pageTitle %></h1>
+      <% if (typeof description !== 'undefined') { %>
+			<p><%= description %></p>
+			<% } %>
+    </div>
