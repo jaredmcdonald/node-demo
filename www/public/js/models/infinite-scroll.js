@@ -1,14 +1,21 @@
 define([
-  'jquery', // TODO: do this without the dom
   'underscore',
   'backbone'
-], function($, _, Backbone){
+], function(_, Backbone){
+
   var InfiniteScrollModel = Backbone.Model.extend({
+
+    initialize: function(options){
+      this.options = options;
+    },
+
     url: function(){
-        var d = $(".infinite-scroll section").length ? $(".infinite-scroll section:last").attr("data-date") : new Date();
-        console.log(APP.restUrl + '/photos/' + escape(d) + '/5');
-        return APP.restUrl + '/photos/' + escape(d) + '/5';
+        console.log(APP.restUrl + '/photos/' + this.options.d + '/' + this.options.limit);
+        return APP.restUrl + '/photos/' + this.options.d + '/' + this.options.limit;
     }
+    
   });
+
   return InfiniteScrollModel;
+
 });

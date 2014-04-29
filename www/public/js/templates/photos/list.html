@@ -1,8 +1,10 @@
-<% _.each(obj, function (photo) { %>
+<% _.each(obj.items, function (photo, key) { %>
+	<% if(key < obj.limit) { %>
 	<section data-date="<%= photo.date %>">
 		<figure>
 			<img src="<%= photo.path %>" alt="<%= photo.title %>" class="img-responsive" />
 			<figcaption><%= photo.title %></figcaption>
 		</figure>
 	</section>
-<%  }); %>
+	<% } %>
+<% }); %>
