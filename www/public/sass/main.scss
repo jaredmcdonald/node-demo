@@ -1,0 +1,27 @@
+@import 'bootstrap';
+@import 'bootstrap-theme';
+
+body {
+  padding-top: 70px;
+  padding-bottom: 30px;
+}
+
+figure {
+  background-color: #eee;
+  text-align: center;
+
+  img {
+    margin:auto;
+  }
+
+  figcaption {
+    background: #c6c1c1;
+    font-size:2em;
+    font-style: italic;
+    margin-bottom:1em;
+  }
+}
+
+.alert {
+  margin:0.5em;
+}
