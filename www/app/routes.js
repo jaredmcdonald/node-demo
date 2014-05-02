@@ -42,10 +42,4 @@ module.exports = function(app) {
 		});
 	});
 
-	// application cache
-	app.get('/app.appcache', function(req, res) {
-		res.header("Content-Type", "text/cache-manifest");
-		res.render('appcache.ejs');
-	});
-
 };
