@@ -4,7 +4,8 @@ require.config({
   paths: {
     jquery: 'libs/jquery/jquery-1.11.0.min',
     underscore: 'libs/underscore/underscore-min',
-    backbone: 'libs/backbone/backbone-min'
+    backbone: 'libs/backbone/backbone-min',
+    localstorage: 'libs/localstorage/backbone.localStorage'
   }
 });
 
