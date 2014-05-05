@@ -1,13 +1,82 @@
 define([
   'jquery',
-  'router'
-], function($, Router){
+  'underscore',
+  'backbone',
+  'router',
+  'collections/infinite-scroll',
+  'views/infinite-scroll'
+], function($, _, Backbone, AppRouter, InfiniteScroll, InfiniteScrollView){
+
+  var Item = function(a, c, stored){ // create a new item list
+
+    if(!stored) { // if we don't already have it in local storage
+
+      //console.log("was not stored");
+
+      var options = {
+        d : $(".infinite-scroll section").length ? escape($(".infinite-scroll section:last").attr("data-date")) : escape(new Date()),
+        limit : 5 // number of items to append
+      };
+
+      var renderView = function(){
+        var infiniteScrollView = new InfiniteScrollView({ el: $(".infinite-scroll"), model : c.models[c.length - 1], viewOptions : options });
+        infiniteScrollView.render();
+      };
+
+      var infiniteScrollModel = new InfiniteScroll.Model( options );
+      c.add(infiniteScrollModel);
+
+      c.listenToOnce(c, 'change', renderView);
+
+    } else { // we have it in local storage
+
+      //console.log("was stored");
+
+      _(c.models).each(function(m) {
+        console.log("model below from local storage:");
+        console.log(m);
+        var infiniteScrollView = new InfiniteScrollView({ el: $(".infinite-scroll"), model : m, viewOptions : m.options });
+        infiniteScrollView.render();
+      });
+
+    }
+
+    // handle routing
+    a.navigate("#/page/" + ((c.length <= 1) ? 1 : (c.length - 1)), {trigger:false});
+
+  };
 
   var initialize = function(){
+
     APP.isLoading = false;
     APP.infiniteScroll = true;
     APP.restUrl = "http://localhost:3000/api";
-    Router.initialize();
+
+    var appRouter = new AppRouter;
+    Backbone.history.start();
+
+    var onDataHandler = function(collection, response, options) {
+      //console.log("collection data success... collection below:");
+      //console.log(collection);
+      var stored = (collection.length > 0) ? true : false;
+      var item = new Item(appRouter, collection, stored);
+    };
+
+    var onErrorHandler = function(collection, response, options) {
+      console.log('response error is: ' + response.responseText);
+    };
+
+    var infiniteScrollCollection = new InfiniteScroll.Collection();
+    infiniteScrollCollection.fetch({ success : onDataHandler, error: onErrorHandler });
+
+    window.onscroll = function() {
+      if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 150) {
+        if(!APP.isLoading && APP.infiniteScroll) {
+          var newItem = new Item(appRouter, infiniteScrollCollection, false);
+        }
+      }
+    };
+
   };
 
   return {

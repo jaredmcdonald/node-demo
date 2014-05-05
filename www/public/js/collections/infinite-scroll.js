@@ -12,10 +12,10 @@ define([
       this.options = options;
 
       var onDataHandler = function(model, response, options) {
-        console.log("our model's model below:");
-        console.log(model);
-        console.log("our model's response below");
-        console.log(model);
+        //console.log("our model's model below:");
+        //console.log(model);
+        //console.log("our model's response below");
+        //console.log(model);
         that.save();
       };
 
