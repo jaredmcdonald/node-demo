@@ -14,23 +14,20 @@ define([
     template: _.template(InfiniteScrollTemplate),
 
     render: function(){
-      var that = this;
-      APP.isLoading = true;
-      this.$el.addClass("loading");
-      this.model.fetch({
-        success: function (result) {
-          var obj = {
-            items : result.toJSON(),
-            limit : that.options.limit
-          };
-          if(obj.items.hasOwnProperty(0)) // if we have results do underscore templating
-            that.$el.append( that.template({ obj: obj, _:_ }) );
-          else // else stop from making more requests
-            APP.infiniteScroll = false;
-          APP.isLoading = false;
-          that.$el.removeClass("loading");
-        }
-      });
+      console.log("our view model below:");
+      console.log(this.model);
+      var obj = this.model.toJSON();
+      console.log("our view model as an object below:");
+      console.log(obj);
+      if(this.model.has(0) ) { // if we have results do underscore templating
+        console.log("exists");
+        console.log(obj);
+        this.$el.append( this.template({ obj: obj, _:_ }) );
+      } else { // else stop from making more requests
+        APP.infiniteScroll = false;
+      }
+      APP.isLoading = false;
+      this.$el.removeClass("loading");
     }
 
   });
