@@ -26,8 +26,6 @@ define([
       } else { // else stop from making more requests
         APP.infiniteScroll = false;
       }
-      APP.isLoading = false;
-      this.$el.removeClass("loading");
     }
 
   });

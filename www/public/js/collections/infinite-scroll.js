@@ -28,15 +28,15 @@ define([
     },
 
     url: function(){
-      console.log("model url is: " + APP.restUrl + '/photos/' + this.options.d + '/' + this.options.limit);
-      return APP.restUrl + '/photos/' + this.options.d + '/' + this.options.limit;
+      console.log("model url is: " + APP.restUrl + '/photos/' + this.options.date + '/' + this.options.limit);
+      return APP.restUrl + '/photos/' + this.options.date + '/' + this.options.limit;
     }
 
   });
 
   var InfiniteScrollCollection = Backbone.Collection.extend({
     model: InfiniteScrollModel,
-    localStorage: new Backbone.LocalStorage("inf")
+    localStorage: new Backbone.LocalStorage("infiniteScrollModel")
   });
 
   return {

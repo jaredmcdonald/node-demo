@@ -7,7 +7,7 @@ require.config({
     backbone: 'libs/backbone/backbone-min',
     localStorage: 'libs/localstorage/backbone.localStorage'
   },
-  shim: {
+  shim: { 
     underscore: {
       exports: "_"
     },
