@@ -34,15 +34,30 @@ An example Node website and API. This is an example using Express framework for 
 *	[Install the Grunt CLI](http://gruntjs.com/getting-started "Grunt | Getting Started")
 * Start Mongo (see documentation above)
 * Navigate to the API directory: 
-'''
+```
 cd /apps/rest
-'''
-* Install dependencies (uses package.json): npm install
-* Start the API server: node server.js
+```
+* Install dependencies (uses package.json): 
+```
+npm install
+```
+* Start the API server: 
+```
+node server.js
+```
 * Open new tab in shell
-* Navigate to the website directory: cd /www
-* Install dependencies (uses package.json): npm install
-* Start the website server: node server.js
+* Navigate to the website directory: 
+```
+cd /www
+```
+* Install dependencies (uses package.json): 
+```
+npm install
+```
+* Start the website server: 
+```
+node server.js
+```
 * At any time concatenate JS and SCSS to CSS by running "Grunt" in the website directory (/www)
 * By default we've set this up to use "/www/public/js/main-dev.js" as our JS entry point. To use the minified version ("main.js") set the node environment to production in the command line like so "set NODE_ENV = production". See "/views/inc/bottom.ejs" for logic.
 
