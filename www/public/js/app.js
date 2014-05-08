@@ -12,7 +12,7 @@ define([
   // Instantiate the router
   var appRouter = new AppRouter;
   // Time in minutes to clear local storage
-  var storageExpireTime = 15;
+  var storageExpireTime = 1;
 
   // Based on boolean "stored" argument - retrieves either the
   // collection from local storage and outputs a presentation or
@@ -32,8 +32,8 @@ define([
     } else { // Create a new one
 
       // Store the time we are adding to local storage
-      var time = new Date().toString();
-      localStorage.setItem('photoAddTime', time);
+      var expireDate = new Date(new Date().getTime() + (storageExpireTime * 60000));
+      localStorage.setItem('photoAddTime', expireDate);
 
       // Tell our app that we're loading a model
       APP.isLoading = true;
@@ -56,12 +56,13 @@ define([
         // tell our app loading is complete
         APP.isLoading = false;
         $(el).removeClass("loading");
+        console.log(collection);
+        console.log("addding browser entry. length is : " + collection.length);
+        // Add an entry in browsing history.
+        router.navigate("#/page/" + collection.length, {trigger:false});
       });
 
     }
-
-    // Add an entry in browsing history.
-    router.navigate("#/page/" + ((collection.length <= 1) ? 1 : (collection.length - 1)), {trigger:false});
 
   };
 
@@ -71,24 +72,52 @@ define([
     infiniteScrollView.render();
   }
 
+  // Instantiate a collection
+  var NewCollection = function() {
+    // Instantiate a new collection and fetch for existence of models
+    var infiniteScrollCollection = new InfiniteScroll.Collection();
+    infiniteScrollCollection.fetch({ success : onDataHandler, error: onErrorHandler });
+  }
+
+  // Bind scroll event
+  // When scrolled to bottom if we're not loading a model and
+  // if infinite scroll is still enabled - instantiate a new item.
+  var ScrollHandler = function(collection) {
+    window.onscroll = function() {
+      if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 150) {
+        if(!APP.isLoading && APP.infiniteScroll) {
+          var newItem = new Item(appRouter, collection, false);
+        }
+      }
+    };
+  };
+
   // Check the passed "collection" to detect whether it's already
   // populated and assign that boolean value to "stored" which is
   // passed to a new item instance.
   var onDataHandler = function(collection, response, options) {
+    console.log("collection length: " + collection.length);
     if(collection.length > 0) {
       var time = new Date();
       var expireTime = new Date(localStorage.getItem('photoAddTime'));
       console.log("time: " + time);
-      console.log("stored time: " + expireTime);
+      console.log("expire time: " + expireTime);
       console.log(expireTime < time);
       if(expireTime < time) {
         var stored = false;
+        // Start over
         window.localStorage.clear();
+        // Instantiate a new collection
+        var newCollection = new NewCollection();
       } else {
+        var scrollHandler = new ScrollHandler(collection);
         var stored = true;
+        var item = new Item(appRouter, collection, stored);
       }
+    } else {
+      var scrollHandler = new ScrollHandler(collection);
+      var item = new Item(appRouter, collection, stored);
     }
-    var item = new Item(appRouter, collection, stored);
   };
 
   // Handle error
@@ -107,19 +136,8 @@ define([
     // Monitor hash change events
     Backbone.history.start();
 
-    // Instantiate a new collection and fetch for existence of models
-    var infiniteScrollCollection = new InfiniteScroll.Collection();
-    infiniteScrollCollection.fetch({ success : onDataHandler, error: onErrorHandler });
-
-    // When scrolled to bottom if we're not loading a model and
-    // if infinite scroll is still enabled - instantiate a new item.
-    window.onscroll = function() {
-      if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 150) {
-        if(!APP.isLoading && APP.infiniteScroll) {
-          var newItem = new Item(appRouter, infiniteScrollCollection, false);
-        }
-      }
-    };
+    // Instantiate a new collection
+    var newCollection = new NewCollection(false);
 
   };
 
