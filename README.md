@@ -6,7 +6,8 @@ An example Node website and app. This is an example using the Express framework 
 ##What is Node##
 
 > Node.js is a platform built on Chrome's JavaScript runtime for easily building fast, scalable network applications. Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient, perfect for data-intensive real-time applications that run across distributed devices.
--[nodejs.org](http://nodejs.org/ "nodejs.org")
+
+~ [nodejs.org](http://nodejs.org/ "nodejs.org")
 
 ##What This Example Includes##
 
