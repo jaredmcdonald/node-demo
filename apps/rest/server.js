@@ -4,7 +4,7 @@
  *
  *******************************************************************************/
 
-var env         = process.env.NODE_ENV || 'dev';
+var ENV         = process.env.NODE_ENV || 'dev';
 var port        = process.env.PORT || 3000;
 var restify     = require('restify');
 var mongoose    = require('mongoose');

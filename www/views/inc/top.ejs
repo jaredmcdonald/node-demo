@@ -7,7 +7,16 @@
 	<title><%= pageTitle %></title>
     <script>
     <% if (section == 'photos') { %>
+      var APP = window.APP || {
+        infiniteScroll : true,
+        isLoading : false
+      };
     <% } else if(typeof msgSuccess !== 'undefined') { %>
+      var APP = window.APP || {
+        clearStorage : true
+      };
+    <% } else { %>
+      var APP = window.APP || {};
     <% } %>
     </script>
     <link href="/css/main.css" rel="stylesheet">

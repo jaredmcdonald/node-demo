@@ -1,5 +1,8 @@
+// Global settings
 var APP = window.APP || {};
+APP.restUrl = "http://localhost:3000/api";
 
+// Require paths and dependencies
 require.config({
   paths: {
     jquery: 'libs/jquery/jquery-1.11.0.min',
@@ -21,8 +24,7 @@ require.config({
   }
 });
 
-require([
-	'app'
-], function(App){
+// Start the app!
+require(['app'], function(App){
 	App.initialize();
 });
