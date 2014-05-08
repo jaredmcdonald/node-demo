@@ -4,15 +4,14 @@
  *
  *******************************************************************************/
 
-var env         = process.env.NODE_ENV || 'dev'
+var ENV         = process.env.NODE_ENV || 'dev'
 var port        = process.env.PORT || 8080;
 var express     = require('express');
 var ejs         = require('ejs');
 var mongoose    = require('mongoose');
 var configDB    = require('./config/database.js');
 var app         = express();
-global.env      = env;
-global.rest     = "http://localhost:3000/api";
+global.ENV      = ENV;
 
 /*******************************************************************************
  *

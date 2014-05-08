@@ -15,7 +15,8 @@ An example Node website and API. This is an example using Express framework for 
 * Restify - A node module built specifically for REST web services.
 * Backbone - Using [Local Storage Adapter](https://github.com/jeromegn/Backbone.localStorage "Local Storage Adapter").
 * RequireJS
-*
+* SASS
+* Compass
 
 ##Getting Started##
 

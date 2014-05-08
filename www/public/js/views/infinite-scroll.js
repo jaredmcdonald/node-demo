@@ -5,29 +5,36 @@ define([
   'text!templates/photos/list.html'
 ], function($, _, Backbone, InfiniteScrollTemplate){
 
+  // Setup our view
   var InfiniteScrollView = Backbone.View.extend({
 
+    // Constructor
     initialize: function(options) {
+
+      // Receive passed options and set them on the view
       this.options = options.viewOptions;
+
     },
 
+    // Underscore template
     template: _.template(InfiniteScrollTemplate),
 
     render: function(){
-      console.log("our view model below:");
-      console.log(this.model);
+
       var obj = this.model.toJSON();
-      console.log("our view model as an object below:");
-      console.log(obj);
-      if(this.model.has(0) ) { // if we have results do underscore templating
-        console.log("exists");
-        console.log(obj);
+
+      // If we have results do underscore templating
+      // Else stop from making more requests
+      if(this.model.has(0) ) {
+
         this.$el.append( this.template({ obj: obj, _:_ }) );
-      } else { // else stop from making more requests
+
+      } else {
+
         APP.infiniteScroll = false;
+
       }
-      APP.isLoading = false;
-      this.$el.removeClass("loading");
+      
     }
 
   });

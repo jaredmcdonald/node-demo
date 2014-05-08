@@ -3,7 +3,7 @@ module.exports = function(app) {
 	// show the home page
 	app.get('/', function(req, res) {
 		res.render('photos.ejs', {
-			env : global.env,
+			env : global.ENV,
 			section : "photos",
 			pageTitle : "Photos",
 			description : "A compilation of photos."
@@ -13,7 +13,7 @@ module.exports = function(app) {
 	// show the upload form page
 	app.get('/upload', function(req, res) {
 		res.render('upload.ejs', {
-			env : global.env,
+			env : global.ENV,
 			section : "upload",
 			pageTitle : "Upload",
 			description : "Add to the compilation of photos."
@@ -25,7 +25,7 @@ module.exports = function(app) {
 		var photoController = require(__dirname + '/controllers/photos.js');
 		photoController.postData(req, function(photo){ // success
 			res.render('upload.ejs', {
-				env : global.env,
+				env : global.ENV,
 				pageTitle : "Upload",
 				section : "upload",
 				photo : photo,
@@ -34,7 +34,7 @@ module.exports = function(app) {
 		},
 		function(errMsg){ //error
 			res.render('upload.ejs', {
-				env : global.env,
+				env : global.ENV,
 				pageTitle : "Upload",
 				section : "upload",
 				msgErr: errMsg
