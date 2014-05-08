@@ -97,6 +97,8 @@ define([
   // passed to a new item instance.
   var onDataHandler = function(collection, response, options) {
     console.log("collection length: " + collection.length);
+    var stored = false;
+    // If collection exists
     if(collection.length > 0) {
       var time = new Date();
       var expireTime = new Date(localStorage.getItem('photoAddTime'));
@@ -104,20 +106,17 @@ define([
       console.log("expire time: " + expireTime);
       console.log(expireTime < time);
       if(expireTime < time) {
-        var stored = false;
+        //var stored = false;
         // Start over
         window.localStorage.clear();
-        // Instantiate a new collection
         var newCollection = new NewCollection();
+        return;
       } else {
-        var scrollHandler = new ScrollHandler(collection);
-        var stored = true;
-        var item = new Item(appRouter, collection, stored);
+        stored = true;
       }
-    } else {
-      var scrollHandler = new ScrollHandler(collection);
-      var item = new Item(appRouter, collection, stored);
     }
+    var scrollHandler = new ScrollHandler(collection);
+    var item = new Item(appRouter, collection, stored);
   };
 
   // Handle error
