@@ -19,7 +19,8 @@ An example Node website and API. This is an example using Express framework for 
 * RequireJS
 * SASS
 * Compass
-* Grunt
+* Grunt - Compass contrib, Require contrib (using r.js)
+* Important concepts - MVC/ MVP, AMD (Asynchronous Modular Definition)
 
 ##Getting Started##
 
@@ -30,6 +31,15 @@ An example Node website and API. This is an example using Express framework for 
 *	[package.json](https://www.npmjs.org/doc/json.html "package.json") - Configuration object for the project
 *	[Install and Setup Mongo](http://docs.mongodb.org/manual/installation/ "Install and Setup Mongo")
 *	[Install the Grunt CLI](http://gruntjs.com/getting-started "Grunt | Getting Started")
+* Start Mongo (see documentation above)
+* Navigate to the API directory: cd /apps/rest
+* Install dependencies (uses package.json): npm install
+* Start the API server: node server.js
+* Open new tab in shell
+* Navigate to the website directory: cd /www/
+* Install dependencies (uses package.json): npm install
+* Start the website server: node server.js
+* At any time concatenate JS and SCSS to CSS by running "Grunt" in the website directory (/www)
 
 ####Helpful links####
 
