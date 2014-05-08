@@ -33,11 +33,14 @@ An example Node website and API. This is an example using Express framework for 
 *	[Install and Setup Mongo](http://docs.mongodb.org/manual/installation/ "Install and Setup Mongo")
 *	[Install the Grunt CLI](http://gruntjs.com/getting-started "Grunt | Getting Started")
 * Start Mongo (see documentation above)
-* Navigate to the API directory: cd /apps/rest
+* Navigate to the API directory: 
+'''
+cd /apps/rest
+'''
 * Install dependencies (uses package.json): npm install
 * Start the API server: node server.js
 * Open new tab in shell
-* Navigate to the website directory: cd /www/
+* Navigate to the website directory: cd /www
 * Install dependencies (uses package.json): npm install
 * Start the website server: node server.js
 * At any time concatenate JS and SCSS to CSS by running "Grunt" in the website directory (/www)
