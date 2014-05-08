@@ -1,17 +1,23 @@
 Node Demo
 ====
 
-An example Node Express website and Restify app.
+# An example Node website and app. This is an example using the Express framework for the website and Restify based API - two web apps working together. Backbone is used on the front end to assist in this interaction. #
 
-##What This Demo Includes##
+##What is Node##
 
-*   Express - A web aplication framework for Node.
-*   Restify - A node module built specifically for REST web services.
-*		More explanation to come...
+> Node.js is a platform built on Chrome's JavaScript runtime for easily building fast, scalable network applications. Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient, perfect for data-intensive real-time applications that run across distributed devices.
+
+##What This Example Includes##
+
+* Express - A web aplication framework for Node.
+* Restify - A node module built specifically for REST web services.
 
 ##Getting Started##
 
-*	[Example .gitignore for Node Projects](.gitignore)
+*	[My Example .gitignore for Node Projects](.gitignore "Example .gitignore for Node Projects")
+*	[NPM - Node Package Manager](https://www.npmjs.org "NPM - Node Package Manager") - Installs, publishes and manages node programs.
+*	[NPM - Node Package Manager](https://www.npmjs.org/doc/json.html "NPM - Node Package Manager")
+
 *	[Install Node](http://nodejs.org/download/ "Install Node")
 *	[Install and Setup Mongo](http://docs.mongodb.org/manual/installation/ "Install and Setup Mongo")
 *	[Install the Grunt CLI](http://gruntjs.com/getting-started "Grunt | Getting Started")
@@ -19,3 +25,4 @@ An example Node Express website and Restify app.
 ####Helpful links####
 
 *	[Node.js Style Guide](https://github.com/felixge/node-style-guide "Node.js Style Guide") authored by Felix Geisendörfer
+*	[package.json - An interactive guide](http://package.json.nodejitsu.com "package.json - An interactive guide") published by Nodejitsu
