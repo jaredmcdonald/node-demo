@@ -11,12 +11,11 @@ An example Node Express website and Restify app.
 
 ##Getting Started##
 
-1. [Install Node](http://nodejs.org/download/ "Install Node")
-2. [Install and Setup Mongo](http://docs.mongodb.org/manual/installation/ "Install and Setup Mongo")
-3. [Install the Grunt CLI](http://gruntjs.com/getting-started "Grunt | Getting Started")
-4. More to come...
+*	[Example .gitignore for Node Projects](.gitignore)
+*	[Install Node](http://nodejs.org/download/ "Install Node")
+*	[Install and Setup Mongo](http://docs.mongodb.org/manual/installation/ "Install and Setup Mongo")
+*	[Install the Grunt CLI](http://gruntjs.com/getting-started "Grunt | Getting Started")
 
 ####Helpful links####
 
-*   [Node.js Style Guide](https://github.com/felixge/node-style-guide "Node.js Style Guide") authored by Felix Geisendörfer
-*		More to come...
+*	[Node.js Style Guide](https://github.com/felixge/node-style-guide "Node.js Style Guide") authored by Felix Geisendörfer
