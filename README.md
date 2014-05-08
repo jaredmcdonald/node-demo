@@ -15,6 +15,7 @@ An example Node website and API. This is an example using Express framework for 
 * Restify - A node module built specifically for REST web services.
 * MongoDB - A document based database. Important concepts - "Dynamic schemas", "collections", "documents".
 * Mongoose - A Node module to make Mongo communication easier - mongodb object modeling.
+*	EJS - A templating framework to present views.
 * Backbone - Using [Local Storage Adapter](https://github.com/jeromegn/Backbone.localStorage "Local Storage Adapter").
 * RequireJS
 * SASS
@@ -40,6 +41,7 @@ An example Node website and API. This is an example using Express framework for 
 * Install dependencies (uses package.json): npm install
 * Start the website server: node server.js
 * At any time concatenate JS and SCSS to CSS by running "Grunt" in the website directory (/www)
+* By default we've set this up to use "/www/public/js/main-dev.js" as our JS entry point. To use the minified version ("main.js") set the node environment to production in the command line like so "set NODE_ENV = production". See "/views/inc/bottom.ejs" for logic.
 
 ####Helpful links####
 
