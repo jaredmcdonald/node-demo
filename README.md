@@ -1,7 +1,7 @@
-An example Node website and app.
+An Example Node Website
 ====
 
-An example Node website and app. This is an example using the Express framework for the website and Restify based API - two web apps working together. Backbone is used on the front end to assist in this interaction.
+An example Node website and API. This is an example using Express framework for the website and a Restify based API - two web apps working together. Backbone is used on the front end to assist in this interaction.
 
 ##What is Node##
 
