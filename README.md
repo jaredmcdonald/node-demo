@@ -13,10 +13,13 @@ An example Node website and API. This is an example using Express framework for 
 
 * Express - A web aplication framework for Node.
 * Restify - A node module built specifically for REST web services.
+* MongoDB - A document based database. Important concepts - "Dynamic schemas", "collections", "documents".
+* Mongoose - A Node module to make Mongo communication easier - mongodb object modeling.
 * Backbone - Using [Local Storage Adapter](https://github.com/jeromegn/Backbone.localStorage "Local Storage Adapter").
 * RequireJS
 * SASS
 * Compass
+* Grunt
 
 ##Getting Started##
 
